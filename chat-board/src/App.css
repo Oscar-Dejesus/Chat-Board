@@ -1,0 +1,24 @@
+html{
+  background-color: cadetblue;
+}
+
+.text-field{
+  width:30vw;
+  height: 300px;
+  text-wrap: wrap;
+  
+}
+.Name{
+  margin: 10px;
+}
+.post-button{
+  margin: 10px;
+}
+.text-div{
+  display:flex;
+  justify-content: center;
+}
+.chat-box{
+ display: flex;
+ justify-content: center;
+}
