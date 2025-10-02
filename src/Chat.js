@@ -1,17 +1,21 @@
 
 import React, { use, useState } from 'react';
 function Chat(){
-    const [Chat,setChat]= useState(["hello","nice to meet you"])
+    const [Chat,setChat]= useState([])
     
     const addpost=(Chat)=>{
         if (input.text.trim(" ") ==="")
             return;
-        setChat(Chat=>[...Chat,input.text])
+        setChat(Chat=>[...Chat,{"name":input.name,"text":input.text}])
     
     }
+    
     const [input, setInput]= useState({"name":"","text":""})
     const setin = (i)=>{
         setInput(input=>({...input,"text":i}))
+    }
+    const setname=(i)=>{
+        setInput(input=>({...input,"name":i}))
     }
    
 
@@ -19,7 +23,7 @@ function Chat(){
         <>
 
             <div className='text-div'>
-      <input className="Name" type="text" placeholder='Enter Your name'>
+      <input className="Name" type="text" placeholder='Enter Your name' onChange={(e) => setname(e.target.value)}>
       </input>
       <button className="post-button" onClick={addpost}>Post</button>
 
@@ -34,7 +38,8 @@ function Chat(){
                 return(
                     <>
                     <div className='chat-box'>
-                    <h1>{chat}</h1>
+                        <h1>{chat.name}: </h1>
+                        <h1>{chat.text}</h1>
                     </div>
                     </>
                 );
