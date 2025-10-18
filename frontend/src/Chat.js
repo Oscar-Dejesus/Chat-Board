@@ -1,14 +1,36 @@
 
 import React, { use, useState } from 'react';
+import { useEffect } from 'react';
 function Chat(){
     const [Chat,setChat]= useState([])
     
     const addpost=(Chat)=>{
         if (input.text.trim(" ") ==="")
             return;
+        
         setChat(Chat=>[...Chat,{"name":input.name,"text":input.text}])
-    
+         document.getElementById('Message').value = '';
+        fetch(('http://localhost:5050/api/post'),{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify({
+             name: input.name,         // Replace with dynamic values if needed
+             message: input.text
+            })
+        })
+        .then((res)=>res.json())
+        .then(data => {
+            console.log('Server response:', data);
+        })
+        
     }
+    useEffect(()=>{
+        fetch(('http://localhost:5050/api/message'))
+        .then((res)=>res.json())
+        .then((data) => setChat(data))
+    },[])
     
     const [input, setInput]= useState({"name":"","text":""})
     const setin = (i)=>{
@@ -29,7 +51,7 @@ function Chat(){
 
     </div>
     <div className='text-div'>
-      <textarea className="text-field" type= "text" placeholder='Enter your text' onChange={(e) => setin(e.target.value)}>
+      <textarea className="text-field" id="Message" type= "text" placeholder='Enter your text' onChange={(e) => setin(e.target.value)}>
       </textarea>
 
     </div>
