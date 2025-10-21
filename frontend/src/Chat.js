@@ -1,8 +1,10 @@
 
 import React, { use, useState } from 'react';
 import { useEffect } from 'react';
+import { FixedSizeList as List } from 'react-window';
 function Chat(){
     const [Chat,setChat]= useState([])
+    const [visible,setvisible]= useState(5)
     
     const addpost=(Chat)=>{
         if (input.text.trim(" ") ==="")
@@ -10,7 +12,8 @@ function Chat(){
         
         setChat(Chat=>[...Chat,{"name":input.name,"text":input.text}])
          document.getElementById('Message').value = '';
-        fetch(('http://localhost:5050/api/post'),{
+        
+         fetch(('http://localhost:5050/api/post'),{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -26,6 +29,7 @@ function Chat(){
         })
         
     }
+
     useEffect(()=>{
         fetch(('http://localhost:5050/api/message'))
         .then((res)=>res.json())
@@ -40,7 +44,9 @@ function Chat(){
         setInput(input=>({...input,"name":i}))
     }
    
-
+    const showMore = () => {
+        setvisible((prev) =>prev + 5)
+    }
     return(
         <>
 
@@ -56,7 +62,7 @@ function Chat(){
 
     </div>
         <div >
-            {Chat.map((chat,index)=>{
+            {Chat.slice(0,visible).map((chat,index)=>{
                 return(
                     <>
                     <div className='chat-box'>
@@ -66,6 +72,9 @@ function Chat(){
                     </>
                 );
             })}
+        </div>
+        <div className='LoadMore'>
+        <button onClick={showMore}>Load more</button>
         </div>
         </>
     )

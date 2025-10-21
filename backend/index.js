@@ -22,11 +22,13 @@ const db= new sqlite3.Database(DBPATH,(err)=>{
 app.get('/api/message', (req, res) => {
   const sql = 'SELECT * FROM message';
   db.all(sql,[],(err,rows)=>{
+    
     if(err){
         console.log(err.message);
     }else{
         res.json(rows);
     }
+    
   })
 
 });
@@ -40,10 +42,19 @@ app.post('/api/post',(req,res)=>{
         }
     })
 })
+app.delete('/api/remove',(req,res)=>{
+
+  sql = 'DELETE FROM message WHERE id = ?'
+    db.run(sql,[req.body.id],(err)=>{
+        if(err){
+            console.log(err.message);
+        }else{
+            console.log("removed")
+            res.json({ success: true, removedId: req.body.id });
+        }
+    })
+})
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-app.get('/api/message', (req, res) => {
-
-})
