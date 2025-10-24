@@ -2,7 +2,7 @@
   "name": "chat-board",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Oscar-Dejesus.github.io/Chat-Board/frontend",
+  "homepage": "https://Oscar-Dejesus.github.io/Chat-Board",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.0",
