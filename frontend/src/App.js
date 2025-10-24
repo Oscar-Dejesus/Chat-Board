@@ -27,7 +27,7 @@ function App() {
     <UI/>
 
 
-    <BrowserRouter basename="/Chat-Board">
+    <BrowserRouter basename="/Chat-Board/frontend">
     <Routes>
       <Route index element= {<Chat/>}/>
       <Route element={<ProtectedRoute/>}>
