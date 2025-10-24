@@ -1,15 +1,65 @@
-html{
+html {
+  height: 100%;
   background-color: rgb(78, 75, 58);
+  background-image: url('./Images/background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover; /* Ensures it fills the whole screen */
+}
+body{
+margin: 0;
 }
 
+
+.Links{
+  font-size: 50px;
+  width: 100vw;
+  color: rgb(59, 59, 255);
+  text-align: center;
+
+}
+
+.Links-text{
+  font-size: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+.NavBar{
+  background-color: bisque;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 150px;
+  margin: 0;
+  text-align: center;
+  border: 20px solid rgb(191, 98, 59);
+}
+.Title{
+  margin: 0;
+  color:rgb(98, 16, 16);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .text-field{
   width:30vw;
   height: 300px;
   text-wrap: wrap;
+  background-color: rgb(223, 103, 47);
+  color: white;  
+  font-size:30px;
+  border: 10px solid burlywood;
+  border-radius: 30px;
+
+  margin-bottom: 40px;
   
 }
 .Name{
+ 
   margin: 10px;
+  background-color: rgb(223, 103, 47);
+  color: white;  
+  font-size:30px;
+  border: 10px solid burlywood;
+  border-radius: 30px;
 }
 .post-button{
   margin: 10px;
@@ -17,9 +67,10 @@ html{
 .text-div{
   display:flex;
   justify-content: center;
+
 }
 .chat-box{
- font-family:'Courier New';
+ font-family:sans-serif;
  color:rgb(255, 255, 255);
  display: flex;
  justify-content: center;
@@ -29,23 +80,30 @@ html{
 
 }
 button{
-  width: 100px;
-  height: 50px;
-  background-color: rgb(159, 159, 159);
-  border: 0;
+  width: 130px;
+  height: 60px;
+  background-color: rgb(255, 149, 0);
   border-radius: 10px;
+  border-color: rgb(237, 188, 146);
+  font-family:monospace;
+  font-size: 20px;
+  color:rgb(255, 255, 255);
 }
 .text-holder{
-  background-image: url('./Images/chat.jpg');
+  background-image: url('./Images/chat.jpeg');
   border-radius: 10px;
   max-width: fit-content;
   padding-left: 10px;
   padding-right: 10px;
-  border: 3px solid;
-  border-color: rgb(188, 108, 37);
+  border: 10px solid rgb(191, 98, 59);
+  border-radius: 30px;
   
 }
 .wrap-div{
   display: flex;
  justify-content: center;
+}
+.text-diplay{
+  width: 400px; /* or any size */
+  word-wrap: break-word;
 }

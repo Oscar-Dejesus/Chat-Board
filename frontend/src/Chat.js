@@ -32,9 +32,12 @@ function Chat(){
     }
 
     useEffect(()=>{
-        fetch(('http://localhost:5050/api/message'))
+        const fetchmessage = ()=>{fetch(('http://localhost:5050/api/message'))
         .then((res)=>res.json())
         .then((data) => setChat(data))
+        }
+        fetchmessage();
+        setInterval(fetchmessage,5000);
     },[])
     
     const [input, setInput]= useState({"name":"","text":""})
@@ -68,8 +71,7 @@ function Chat(){
                 return(
                     <>
                     <div className='chat-box'>
-                        <h1>{chat.name}: </h1>
-                        <h1>{chat.text}</h1>
+                        <h1 className='text-diplay'> {chat.name}: {chat.text}</h1>
                     </div>
                     </>
                 );

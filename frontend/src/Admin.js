@@ -43,8 +43,7 @@ function Admin(){
                 return(
                     <>
                     <div className='chat-box' >
-                        <h1>{chat.name}: </h1>
-                        <h1>{chat.text}</h1>
+                        <h1 className='text-diplay'> {chat.name}: {chat.text}</h1>
                         <button onClick={() =>remove(chat.id)}> delete </button>
                         
                     </div>
