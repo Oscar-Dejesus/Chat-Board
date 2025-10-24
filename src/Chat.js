@@ -51,6 +51,7 @@ function Chat(){
     const showMore = () => {
         setvisible((prev) =>prev + 5)
     }
+    
     return(
         <>
 
@@ -67,7 +68,9 @@ function Chat(){
     </div>
         <div className='wrap-div'>
         <div className='text-holder' >
-            {Chat.slice(0,visible).map((chat,index)=>{
+
+            {Chat.slice(-visible).map((chat,index)=>{
+                
                 return(
                     <>
                     <div className='chat-box'>

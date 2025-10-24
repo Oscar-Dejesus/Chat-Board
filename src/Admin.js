@@ -5,7 +5,7 @@ function Admin(){
     const [Chat,setChat]= useState([])
     const [visible,setvisible]= useState(5)
     const [bnum,Setbnum]= useState(0)
-    
+    const backend ="https://chatboard-backend.onrender.com"
     
     
     const showMore = () => {
@@ -13,7 +13,7 @@ function Admin(){
     }
     const remove=(id)=>{
         
-        fetch(('http://localhost:5050/api/remove'),{
+        fetch((backend+'/api/remove'),{
             method:'DELETE',
             headers:{
                 'Content-Type':'application/json'
@@ -31,14 +31,14 @@ function Admin(){
     }
 
     useEffect(()=>{
-        fetch(('http://localhost:5050/api/message'))
+        fetch((backend +'/api/message'))
         .then((res)=>res.json() )
         .then((data) => setChat(data))
     },[])
     return(
         <>
         <div > 
-            {Chat.slice(0,visible).map((chat,index)=>{
+            {Chat.slice(-visible).map((chat,index)=>{
                 
                 return(
                     <>
