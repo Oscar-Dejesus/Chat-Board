@@ -2,7 +2,7 @@ import './App.css';
 
 import Chat from './Chat'
 import Admin from './Admin'
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import {HashRouter,Routes,Route} from 'react-router-dom'
 import Login from './Login'
 import ProtectedRoute from './ProtectedRoute';
 import UI from './UI';
@@ -27,16 +27,15 @@ function App() {
     <UI/>
 
 
-    <BrowserRouter basename="/Chat-Board">
-    <Routes>
-      <Route index element= {<Chat/>}/>
-      <Route element={<ProtectedRoute/>}>
-        <Route path='/admin' element={<Admin/>}/>
-      </Route>
-      
-      <Route path='/login' element={<Login/>}/>
-    </Routes>
-    </BrowserRouter>
+    <HashRouter >
+  <Routes>
+    <Route index element={<Chat />} />
+    <Route element={<ProtectedRoute />}>
+      <Route path="/admin" element={<Admin />} />
+    </Route>
+    <Route path="/login" element={<Login />} />
+  </Routes>
+</HashRouter>
     
     
     </>

@@ -6,7 +6,7 @@ import { FixedSizeList as List } from 'react-window';
 function Chat(){
     const [Chat,setChat]= useState([])
     const [visible,setvisible]= useState(5)
-
+    const backend ="https://chatboard-backend.onrender.com"
     const addpost=(Chat)=>{
         if (input.text.trim(" ") ==="")
             return;
@@ -14,7 +14,7 @@ function Chat(){
         setChat(Chat=>[...Chat,{"name":input.name,"text":input.text}])
          document.getElementById('Message').value = '';
         
-         fetch(('http://localhost:5050/api/post'),{
+         fetch((backend +'/api/post'),{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -32,7 +32,7 @@ function Chat(){
     }
 
     useEffect(()=>{
-        const fetchmessage = ()=>{fetch(('http://localhost:5050/api/message'))
+        const fetchmessage = ()=>{fetch((backend +'/api/message'))
         .then((res)=>res.json())
         .then((data) => setChat(data))
         }
