@@ -2,10 +2,11 @@
 import React, { use, useState } from 'react';
 import { useEffect } from 'react';
 import { FixedSizeList as List } from 'react-window';
+
 function Chat(){
     const [Chat,setChat]= useState([])
     const [visible,setvisible]= useState(5)
-    
+
     const addpost=(Chat)=>{
         if (input.text.trim(" ") ==="")
             return;
@@ -61,7 +62,8 @@ function Chat(){
       </textarea>
 
     </div>
-        <div >
+        <div className='wrap-div'>
+        <div className='text-holder' >
             {Chat.slice(0,visible).map((chat,index)=>{
                 return(
                     <>
@@ -72,6 +74,7 @@ function Chat(){
                     </>
                 );
             })}
+        </div>
         </div>
         <div className='LoadMore'>
         <button onClick={showMore}>Load more</button>

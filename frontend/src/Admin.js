@@ -5,11 +5,7 @@ function Admin(){
     const [Chat,setChat]= useState([])
     const [visible,setvisible]= useState(5)
     const [bnum,Setbnum]= useState(0)
-    useEffect(()=>{
-        fetch(('http://localhost:5050/api/message'))
-        .then((res)=>res.json() )
-        .then((data) => setChat(data))
-    },[])
+    
     
     
     const showMore = () => {
@@ -34,6 +30,11 @@ function Admin(){
         
     }
 
+    useEffect(()=>{
+        fetch(('http://localhost:5050/api/message'))
+        .then((res)=>res.json() )
+        .then((data) => setChat(data))
+    },[])
     return(
         <>
         <div > 
@@ -42,7 +43,7 @@ function Admin(){
                 return(
                     <>
                     <div className='chat-box' >
-                        <h1>{chat.name}</h1>
+                        <h1>{chat.name}: </h1>
                         <h1>{chat.text}</h1>
                         <button onClick={() =>remove(chat.id)}> delete </button>
                         
