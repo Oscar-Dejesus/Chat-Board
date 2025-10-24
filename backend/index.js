@@ -7,7 +7,9 @@ const port = 5050;
 
 
 app.use(express.json());
-app.use(cors()); // Only needed if frontend is on a different port
+app.use(cors({
+  origin: 'http://localhost:3000'  
+})); 
 const DBPATH= './Database.sqlite';
 
 const db= new sqlite3.Database(DBPATH,(err)=>{

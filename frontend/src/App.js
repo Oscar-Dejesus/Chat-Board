@@ -6,7 +6,6 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Login from './Login'
 import ProtectedRoute from './ProtectedRoute';
 import UI from './UI';
-import Info from './Info';
 import { useEffect } from 'react';
 function App() {
 
@@ -28,7 +27,7 @@ function App() {
     <UI/>
 
 
-    <BrowserRouter>
+    <BrowserRouter basename="/Chat-Board">
     <Routes>
       <Route index element= {<Chat/>}/>
       <Route element={<ProtectedRoute/>}>
