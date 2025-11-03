@@ -9,5 +9,5 @@ root.render(
   <App />
 );
 
-// Optional performance monitoring
+
 reportWebVitals();
