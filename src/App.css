@@ -1,10 +1,19 @@
+:root{
+  --primary-background:#23272a;
+  --navbar:hsl(214, 7%, 19%);
+  --text:#99aab5;
+  
+}
+
 html {
+  overflow-x: hidden;
   height: 100%;
-  background-color: rgb(78, 75, 58);
-  background-image: url('./Images/background.jpg');
+  background-color: var(--primary-background);
   background-repeat: no-repeat;
   background-attachment: fixed; 
   background-size: cover; /* Ensures it fills the whole screen */
+  margin: 0;
+  padding: 0;
 }
 body{
 margin: 0;
@@ -27,71 +36,53 @@ margin: 0;
 
 /* Navigation */
 .NavBar{
-  background-color: bisque;
+  background-color: var(--navbar);
+  border: 20px solid #3a3c43;
   box-sizing: border-box;
   width: 100vw;
   height: 150px;
   margin: 0;
   text-align: center;
-  border: 20px solid rgb(191, 98, 59);
+  
 }
 .Title{
   margin: 0;
-  color:rgb(98, 16, 16);
+  color:rgb(170, 207, 247);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/*input and output*/
-.name-input{
-  display:flex;
-  justify-content:left;
 
-}
-.input-output{
-  display:flex;
-  justify-content:center;
 
-  
 
-}
 /* text-area for message input*/
-.text-field{
-  width:30vw;
-  height: 300px;
-  text-wrap: wrap;
-  background-color: rgb(223, 103, 47);
+.input-field{
+  width:100vw;
+  height:50px;
+  background-color: var(--navbar);
   color: white;  
   font-size:30px;
-  border: 10px solid burlywood;
-  border-radius: 30px;
-  margin-bottom: 40px;
-  margin-left: 50px;
-  
 }
-/* name-area for name input*/
-.name-field{
- 
-  margin: 10px;
-  background-color: rgb(223, 103, 47);
-  color: white;  
-  font-size:30px;
-  border: 10px solid burlywood;
-  border-radius: 30px;
-  margin-left: 50px;
-}
+
 /*buttons*/
 .post-button{
   margin: 10px;
 }
+.logout{
+  position: sticky;
+  height:40px;
+  width: 70px;
+  top:0
+}
 button{
-  width: 130px;
-  height: 60px;
-  background-color: rgb(255, 149, 0);
+  width: 70px;
+  height: 40px;
+  background-color: rgb(124, 124, 124);
   border-radius: 10px;
-  border-color: rgb(237, 188, 146);
+  border-color: rgb(255, 255, 255);
   font-family:monospace;
-  font-size: 20px;
+  font-size: 15px;
   color:rgb(255, 255, 255);
 }
+
 .LoadMore{
   display: flex;
   text-align: center;
@@ -104,40 +95,58 @@ button{
 .chat-box{
  font-family:sans-serif;
  color:rgb(255, 255, 255);
+ padding-left: 10px;
  display: flex;
- justify-content: center;
+ flex-direction: column; /* stack vertically */
+
+
 }
 .chat-holder{
-  background-image: url('./Images/chat.jpeg');
-  border-radius: 10px;
-  width:100%;
-  border: 10px solid rgb(191, 98, 59);
-  border-radius: 30px;
-  box-sizing: border-box;
-  min-height: 300px;
-
-}
-.text-diplay{
-  width: 400px; 
-  word-wrap: break-word;
-}
-
-
-/* wrapper class*/
-.wrap-div-messages{
+  overflow-y: auto; 
   display: flex;
- justify-content:right;
- width: 35vw;
+  flex-direction: column-reverse; 
+  background-color: var(--primary-background);
+  width:100vw;
+
+  height: 100%;
 
 }
+.text-messages{
+  font-family:sans-serif;
+  width: 100%; 
+  border-radius: 10px;
+  word-wrap: break-word;
+  margin-top: 0;
+}
 
-.wrap-div-message-display{
-   display: flex;
+.text-name{
+  margin-bottom: 0;
+}
+/* wrapper class*/
+.wrap-chat{
+
+  display: flex;
   flex-direction: column; 
-  justify-content: center;
+  height: calc(100vh - 150px);
+  align-items: center;  
+}
 
-  width: 65vw;
-  padding-left: 50px;
-  padding-right: 50px;
-
+/* Login page*/
+.login-page-wrap{
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+  height: calc(100vh - 150px);
+  
+}
+.login-page{
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(63, 63, 63);
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px black;
 }

@@ -8,7 +8,7 @@ function UI(){
             
             <h1 className="Title">Welcome To The ChatBoard </h1>
             <h1 style={{
-    color: 'rgba(196, 139, 48, 1)', 
+    color: 'rgb(170, 207, 247)', 
     fontFamily: 'sans-serif'
   }}>Voice out anything you want here  </h1>
   

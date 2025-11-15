@@ -1,25 +1,23 @@
 import './App.css';
-
-import Chat from './Chat'
-import Admin from './Admin'
-import {HashRouter,Routes,Route} from 'react-router-dom'
-import Login from './Login'
-import ProtectedRoute from './ProtectedRoute';
+import Chatpage from './Chatpage'
+import Signup from './Signuppage'
+import LoginCheck from './LoginCheck'
 import UI from './UI';
+import {HashRouter,Routes,Route} from 'react-router-dom'
 import { useEffect } from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { Googlelogin } from './Googlogin';
-import { Googlogin } from './Googlogin';
-function App() {
+import { Loginpage } from './Loginpage';
+import { Navigate } from "react-router-dom";
 
+function App() {
 
   useEffect(() => {
     // Initialize window.user to false if it hasn't been set already
-  if (window.user === undefined) {
-      window.user = false;
+  if (window.admin === undefined) {
+      window.admin = false;
     }
+   
   }, []);
-
 
 
 const CLIENT_ID = "158152294175-mbsdbcmafoojpo5pu502kogda88iha4c.apps.googleusercontent.com"
@@ -28,18 +26,28 @@ const CLIENT_ID = "158152294175-mbsdbcmafoojpo5pu502kogda88iha4c.apps.googleuser
     
     <>
     <UI/>
-    <GoogleOAuthProvider clientId={CLIENT_ID}>
+    
 
-      <Googlogin/>
-    </GoogleOAuthProvider>
-
-    <HashRouter >
+<HashRouter >
   <Routes>
-    <Route index element={<Chat />} />
-    <Route element={<ProtectedRoute />}>
-      <Route path="/admin" element={<Admin />} />
+    <Route index element={<Navigate to='/chat' replace/>}/>
+    <Route path="/login" element={
+      <GoogleOAuthProvider clientId={CLIENT_ID}>
+
+      <Loginpage/>
+    </GoogleOAuthProvider>
+     } />
+    <Route element={<LoginCheck/>}>
+        <Route path="/chat" element={<Chatpage />}/>
     </Route>
-    <Route path="/login" element={<Login />} />
+
+    <Route path="/signup" element={
+      <GoogleOAuthProvider clientId={CLIENT_ID}>
+      <Signup/>
+      </GoogleOAuthProvider>
+      }/>
+
+
   </Routes>
 </HashRouter>
     
@@ -49,3 +57,13 @@ const CLIENT_ID = "158152294175-mbsdbcmafoojpo5pu502kogda88iha4c.apps.googleuser
 }
 
 export default App;
+/*
+ADMIN PAGE 
+<Route element={<ProtectedRoute />}>
+      <Route path="/admin" element={<Adminpage />} />
+    </Route>
+    
+
+<Route path="/login" element={<Login />} />
+
+*/

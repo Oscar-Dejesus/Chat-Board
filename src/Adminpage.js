@@ -1,10 +1,9 @@
 
 import React, { use, useState } from 'react';
 import { useEffect } from 'react';
-function Admin(){
+function Adminpage(){
     const [Chat,setChat]= useState([])
     const [visible,setvisible]= useState(5)
-    const [bnum,Setbnum]= useState(0)
     const backend ="https://chatboard-backend.onrender.com"
     
     
@@ -62,4 +61,4 @@ function Admin(){
     )
 }
 
-export default Admin;
+export default Adminpage;

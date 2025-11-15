@@ -7,12 +7,12 @@ function Login(){
     const [password,setpassword] = useState("")
     const navigate = useNavigate(); 
     
-    console.log(window.user)
+
     const check =() =>{
         
         if (password ==="123"){
             console.log("success")
-            window.user=true;
+            window.admin=true;
             navigate('/admin')
         }else{
             console.log("fail")

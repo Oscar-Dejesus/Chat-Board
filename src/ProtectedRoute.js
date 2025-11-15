@@ -5,7 +5,7 @@ const ProtectedRoute = () => {
 
 
   
-    if (window.user){
+    if (window.admin){
         return <Outlet/>
     }else{
         return <Navigate to='/login'/>
