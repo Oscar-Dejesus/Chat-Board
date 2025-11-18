@@ -150,3 +150,33 @@ button{
   border-radius: 10px;
   box-shadow: 2px 2px 8px black;
 }
+
+@media (max-width: 768px) {
+  .NavBar{
+  background-color: var(--navbar);
+  border: 10px solid #3a3c43;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 70px;
+  margin: 0;
+  text-align: center;
+  
+}
+.Title{
+  font-size: 15px;
+  margin: 0;
+  color:rgb(170, 207, 247);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.subtitle{
+  font-size: 9px;
+}
+.text-messages{
+  font-family:sans-serif;
+  width: 100%; 
+  font-size: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+  margin-top: 0;
+}
+}
